@@ -5,32 +5,32 @@ const treinos = [
         {
           nome: "Supino reto com barra",
           series: "4x6-8",
-          imagem: "https://www.bodybuilding.com/images/2021/march/flat-barbell-bench-press-header-960x540.jpg"
+          imagem: "/images/SupinoRetocomBarra.jpg"
         },
         {
           nome: "Supino inclinado com halteres",
           series: "3x8-10",
-          imagem: "https://www.muscleandstrength.com/sites/default/files/incline-dumbbell-press.jpg"
+          imagem: "images/supinoinclinadocomhalteres.jpg"
         },
         {
           nome: "Desenvolvimento militar com barra",
           series: "4x6-8",
-          imagem: "https://www.muscleandstrength.com/sites/default/files/barbell-shoulder-press.jpg"
+          imagem: "images/Desenvolvimentomilitarcombarra.jpg"
         },
         {
           nome: "Elevação lateral",
           series: "3x12-15",
-          imagem: "https://cdn.muscleandstrength.com/sites/default/files/lateral-dumbbell-raise.jpg"
+          imagem: "images/Elevacaolateral.jpg"
         },
         {
           nome: "Tríceps testa",
           series: "3x10-12",
-          imagem: "https://www.muscleandstrength.com/sites/default/files/skull-crusher.jpg"
+          imagem: "images/Trícepstesta.jpg"
         },
         {
           nome: "Tríceps corda na polia",
           series: "3x12-15",
-          imagem: "https://cdn.muscleandstrength.com/sites/default/files/triceps-pushdown-rope.jpg"
+          imagem: "images/Trícepscordanapolia.jpg"
         }
       ]
     },
@@ -41,32 +41,32 @@ const treinos = [
         {
           nome: "Barra fixa (ou puxada na frente)",
           series: "4x6-8",
-          imagem: "https://www.bodybuilding.com/images/2020/august/how-to-do-a-pull-up-960x540.jpg"
+          imagem: "images/Barrafixa.jpg"
         },
         {
           nome: "Remada curvada",
           series: "4x8-10",
-          imagem: "https://cdn.muscleandstrength.com/sites/default/files/bent-over-row.jpg"
+          imagem: "images/Remadacurvada.jpg"
         },
         {
           nome: "Puxada unilateral (ou remada baixa)",
           series: "3x10-12",
-          imagem: "https://www.muscleandstrength.com/sites/default/files/seated-cable-row.jpg"
+          imagem: "images/Puxadaunilateral.jpg"
         },
         {
           nome: "Face pull",
           series: "3x12-15",
-          imagem: "https://www.muscleandstrength.com/sites/default/files/face-pull.jpg"
+          imagem: "images/Facepull.jpg"
         },
         {
           nome: "Rosca direta",
           series: "3x10-12",
-          imagem: "https://www.muscleandstrength.com/sites/default/files/barbell-curl.jpg"
+          imagem: "images/Roscadireta.jpg"
         },
         {
           nome: "Rosca martelo",
           series: "3x12-15",
-          imagem: "https://www.muscleandstrength.com/sites/default/files/hammer-curl.jpg"
+          imagem: "images/Roscamartelo.jpg"
         }
       ]
     },
@@ -77,32 +77,32 @@ const treinos = [
         {
           nome: "Agachamento livre",
           series: "4x6-8",
-          imagem: "https://www.muscleandstrength.com/sites/default/files/barbell-squat.jpg"
+          imagem: "images/Agachamentolivre.jpg"
         },
         {
           nome: "Leg press",
           series: "4x10-12",
-          imagem: "https://cdn.muscleandstrength.com/sites/default/files/leg-press.jpg"
+          imagem: "images/legpress.jpg"
         },
         {
           nome: "Cadeira extensora",
           series: "3x12-15",
-          imagem: "https://www.muscleandstrength.com/sites/default/files/leg-extension.jpg"
+          imagem: "images/Cadeiraextensora.jpg"
         },
         {
           nome: "Mesa flexora",
           series: "3x12-15",
-          imagem: "https://www.muscleandstrength.com/sites/default/files/seated-leg-curl.jpg"
+          imagem: "images/Mesaflexora.jpg"
         },
         {
           nome: "Stiff",
           series: "3x10-12",
-          imagem: "https://www.muscleandstrength.com/sites/default/files/romanian-deadlift.jpg"
+          imagem: "images/Stiff.jpg"
         },
         {
           nome: "Elevação de panturrilha",
           series: "4x15-20",
-          imagem: "https://www.muscleandstrength.com/sites/default/files/seated-calf-raise.jpg"
+          imagem: "images/Elevaçãodepanturrilha.jpg"
         }
       ]
     },
@@ -113,32 +113,32 @@ const treinos = [
         {
           nome: "Supino reto halteres",
           series: "3x10-12",
-          imagem: "https://www.muscleandstrength.com/sites/default/files/dumbbell-bench-press.jpg"
+          imagem: "images/Supinoretohalteres.jpg"
         },
         {
           nome: "Pull down (ou barra)",
           series: "3x10-12",
-          imagem: "https://www.muscleandstrength.com/sites/default/files/pulldown.jpg"
+          imagem: "images/Barrafixa.jpg"
         },
         {
           nome: "Crucifixo máquina",
           series: "3x12-15",
-          imagem: "https://www.muscleandstrength.com/sites/default/files/machine-fly.jpg"
+          imagem: "images/Crucifixomaquina.jpg"
         },
         {
           nome: "Remada unilateral",
           series: "3x10-12",
-          imagem: "https://www.muscleandstrength.com/sites/default/files/one-arm-row.jpg"
+          imagem: "images/Puxadaunilateral.jpg"
         },
         {
-          nome: "Elevação lateral + frontal (bi-set)",
+          nome: "Elevação frontal",
           series: "3x15",
-          imagem: "https://www.muscleandstrength.com/sites/default/files/dumbbell-lateral-raise.jpg"
+          imagem: "images/Elevacaofrontal.jpg"
         },
         {
           nome: "Tríceps francês + Rosca direta",
           series: "3x12",
-          imagem: "https://www.muscleandstrength.com/sites/default/files/overhead-triceps-extension.jpg"
+          imagem: "images/Tricepsfrancesroscadireta.png"
         }
       ]
     },
