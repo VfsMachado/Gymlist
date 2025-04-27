@@ -149,32 +149,32 @@ const treinos = [
         {
           nome: "Avanço com halteres",
           series: "3x12 (cada perna)",
-          imagem: "https://www.muscleandstrength.com/sites/default/files/dumbbell-lunge.jpg"
+          imagem: "images/Avancocomhalteres.jpg"
         },
         {
           nome: "Agachamento búlgaro",
           series: "3x10-12",
-          imagem: "https://www.muscleandstrength.com/sites/default/files/bulgarian-split-squat.jpg"
+          imagem: "images/Agachamentobulgaro.jpg"
         },
         {
           nome: "Stiff com halteres",
           series: "3x12-15",
-          imagem: "https://www.muscleandstrength.com/sites/default/files/dumbbell-deadlift.jpg"
+          imagem: "images/Stiffcomhalteres.jpg"
         },
         {
           nome: "Cadeira abdutora",
           series: "3x15-20",
-          imagem: "https://www.muscleandstrength.com/sites/default/files/leg-abductor-machine.jpg"
+          imagem: "images/Cadeiraabdutora.jpg"
         },
         {
           nome: "Panturrilha no leg",
           series: "4x20",
-          imagem: "https://www.muscleandstrength.com/sites/default/files/calf-raise.jpg"
+          imagem: "images/Panturrilhanoleg.jpg"
         },
         {
           nome: "Prancha",
           series: "3x30-60s",
-          imagem: "https://www.muscleandstrength.com/sites/default/files/plank.jpg"
+          imagem: "images/Prancha.jpg"
         }
       ]
     }
