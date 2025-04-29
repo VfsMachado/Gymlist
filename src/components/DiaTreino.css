@@ -1,0 +1,88 @@
+/* styles/DiaTreino.css */
+.treino-container {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .exercicio-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .exercicio-card {
+    background-color: var(--card);
+    border-radius: var(--border-radius);
+    padding: 16px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+  }
+  
+  .exercicio-card:hover {
+    transform: translateY(-2px);
+  }
+  
+  .exercicio-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+  }
+  
+  .exercicio-header h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: var(--secondary);
+  }
+  
+  .series {
+    background-color: var(--primary);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+  }
+  
+  .exercicio-image {
+    margin: 12px 0;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .exercicio-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  .exercicio-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 12px;
+  }
+  
+  .action-button {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+  }
+  
+  .action-button.complete {
+    background-color: var(--success);
+    color: white;
+  }
+  
+  .action-button.timer {
+    background-color: var(--accent);
+    color: white;
+  }

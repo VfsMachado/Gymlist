@@ -1,35 +1,33 @@
-import React, { useState } from 'react';
+// components/DiaTreino.js
+import React from 'react';
+import { FiCheckCircle, FiClock } from 'react-icons/fi';
 
-const DiaTreino = ({ dia, exercicios }) => {
-  const [exerciciosData, setExerciciosData] = useState(exercicios);
-
-  const toggleFeito = (index) => {
-    const novosExercicios = [...exerciciosData];
-    novosExercicios[index].feito = !novosExercicios[index].feito;
-    setExerciciosData(novosExercicios);
-  };
-
+const DiaTreino = ({ exercicios }) => {
   return (
-    <div className="dia-treino">
-      <h2>{dia}</h2>
-      {exerciciosData.map((exercicio, index) => (
-        <div className="card" key={index}>
-          <img
-            src={exercicio.imagem} // Usando o link da imagem que você passou no arquivo treinos.js
-            alt={exercicio.nome}
-            className="imagem-exercicio"
-          />
-          <div className="info">
-            <p>{exercicio.nome}</p>
-            <p>{exercicio.series}</p>
-            <input
-              type="checkbox"
-              checked={exercicio.feito}
-              onChange={() => toggleFeito(index)}
-            />
+    <div className="treino-container">
+      <div className="exercicio-list">
+        {exercicios.map((exercicio, index) => (
+          <div key={index} className="exercicio-card">
+            <div className="exercicio-header">
+              <h3>{exercicio.nome}</h3>
+              <span className="series">{exercicio.series}</span>
+            </div>
+            {exercicio.imagem && (
+              <div className="exercicio-image">
+                <img src={exercicio.imagem} alt={exercicio.nome} />
+              </div>
+            )}
+            <div className="exercicio-actions">
+              <button className="action-button complete">
+                <FiCheckCircle /> Concluir
+              </button>
+              <button className="action-button timer">
+                <FiClock /> Timer
+              </button>
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 };
