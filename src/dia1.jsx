@@ -1,0 +1,1 @@
+import DiaTreino from '../components/DiaTreino';
