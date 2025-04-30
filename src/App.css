@@ -1,17 +1,11 @@
 /* Variáveis de tema */
 :root {
-  --primary: #FF6B00;       /* Laranja SmartFit */
-  --secondary: #2D2D2D;     /* Preto */
-  --accent: #00A3FF;        /* Azul */
-  --background: #F8F8F8;    /* Fundo claro */
-  --card: #FFFFFF;          /* Cards */
-  --text: #333333;          /* Texto principal */
-  --text-light: #777777;    /* Texto secundário */
-  --success: #4CAF50;       /* Verde */
-  --error: #E74C3C;         /* Vermelho */
-  --border-radius: 12px;
-  --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  --transition: all 0.3s ease;
+  --primary: #2196F3; /* azul para hover e links */
+  --secondary: #444; /* cor secundária para textos */
+  --background: #f9f9f9; /* cor de fundo */
+  --card: #2C945D(0, 0%, 100%); /* fundo dos cards */
+  --text-dark: #333; /* cor de texto principal */
+  --text-light: #666; /* cor de texto secundário */
 }
 
 /* Estilos globais */
@@ -21,7 +15,7 @@ body {
   padding: 0;
   display: flex;
   min-height: 100vh;
-  background: linear-gradient(to bottom right, #5d2c94, #110fa1); /* gradiente do laranja para o preto */
+  background: linear-gradient(to bottom right, #5d2c94, #361979); /* gradiente do laranja para o preto */
   color: var(--text);
 }
 
@@ -41,12 +35,12 @@ body {
   transition: transform 0.3s ease, background-color 0.3s ease;
   z-index: 1000;
   padding-top: 60px;
-  transform: translateX(-100%); /* <-- ESSENCIAL */
+  transform: translateX(-100%); /* Menu fechado inicialmente */
 }
 
 .menu-lateral.open {
   transform: translateX(0px); /* Menu desliza para dentro */
-  background-color: rgba(0, 0, 0, 0.9); /* Quando aberto, fundo opaco */
+  background-color: rgba(0, 0, 0, 0.9); /* Fundo opaco quando aberto */
 }
 
 /* Cabeçalho do menu */
@@ -68,7 +62,7 @@ body {
 }
 
 .close-menu-button:hover {
-  color: var(--accent); /* Cor de destaque quando passa o mouse */
+  color: var(--accent); /* Cor de destaque ao passar o mouse */
 }
 
 /* Itens do menu */
@@ -94,22 +88,6 @@ body {
   margin-right: 10px; /* Espaçamento entre o ícone e o texto */
 }
 
-.menu-days {
-  padding: 20px;
-}
-
-.day-item {
-  margin-bottom: 10px;
-  cursor: pointer;
-  color: white;
-  font-size: 18px;
-  transition: color 0.3s ease;
-}
-
-.day-item:hover {
-  color: var(--accent); /* Cor de destaque ao passar o mouse */
-}
-
 /* Botão de abrir o menu */
 .menu-toggle-button {
   position: fixed;
@@ -132,49 +110,6 @@ body {
 
 .menu-toggle-button .icon {
   margin-right: 8px;
-}
-
-/* Estilo dos itens do menu */
-.menu-item:nth-child(2) .icon {
-  color: var(--error); /* Cor vermelha para o ícone de lixeira */
-}
-
-.menu-item:nth-child(3) .icon {
-  color: var(--primary); /* Cor laranja para o ícone de sair */
-}
-
-/* Menu Lateral Responsivo */
-@media (max-width: 768px) {
-  .menu-lateral {
-    width: 100%;
-  }
-
-  .App {
-    flex-direction: column;
-  }
-  .App.menu-aberto .treinos-container {
-    margin-left: 0;
-  }
-  .treinos-container {
-    padding: 10px;
-  }
-
-  .nav-treinos {
-    flex-direction: column;
-    gap: 10px;
-  }
-}
-
-@media (max-width: 480px) {
-  .nav-treinos {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .treino-card button {
-    width: 100%;
-    padding: 12px 20px;
-  }
 }
 
 /* Estilos para o Conteúdo */
@@ -232,14 +167,15 @@ body {
 }
 
 .treino-card button:hover {
-  background-color: #45a049;
+  background-color: #2C945D;
 }
 
-/*Caia de marcaçao de peso*/
+/* Estilos de Marcações de Peso */
 .pr-input-container {
   display: flex;
   flex-direction: column;
   margin-top: 10px;
+  width: 100%;
 }
 
 .pr-label {
@@ -255,6 +191,12 @@ body {
   outline: none;
   background-color: #2c2c2c;
   color: white;
+  width: 100%;
+  margin-top: 5px;
+}
+
+.pr-input::placeholder {
+  color: var(--text-light);
 }
 
 /* Navegação entre os treinos */
@@ -302,4 +244,97 @@ body {
   border-radius: 50%;
   background-color: var(--secondary);
   color: white;
+}
+
+/* Estilo dos Botões de Opções */
+.option-button {
+  background-color: #008CBA;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.option-button:hover {
+  background-color: #005f6b;
+}
+
+/* Estilos de Navegação entre os Dias */
+.nav-treinos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.treino-card {
+  background-color: #2C945D;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  width: 100%;
+  max-width: 200px;
+}
+
+.treino-card.active {
+  background-color: #008CBA;
+  color: white;
+}
+
+.treino-card:hover {
+  background-color: #d0d0d0;
+}
+
+/* Estilo dos Botões de Navegação por Dia */
+.day-button {
+  border: none;
+  background: transparent;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.day-number {
+  font-weight: bold;
+}
+
+.day-focus {
+  font-size: 0.9rem;
+  color: gray;
+}
+
+/* Menu Lateral Responsivo */
+@media (max-width: 768px) {
+  .menu-lateral {
+    width: 100%;
+  }
+
+  .App {
+    flex-direction: column;
+  }
+
+  .treinos-container {
+    margin-left: 0;
+  }
+
+  .nav-treinos {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-treinos {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .treino-card button {
+    width: 100%;
+    padding: 12px 20px;
+  }
 }

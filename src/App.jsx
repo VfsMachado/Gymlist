@@ -8,11 +8,12 @@ import Dia3 from './pages/dia3';
 import Dia4 from './pages/dia4';
 import Dia5 from './pages/dia5';
 import treinos from './data/treinos';
-import { FiMenu, FiX } from 'react-icons/fi';
+import { FiMenu, FiX, FiCheck, FiTrash2, FiPlus } from 'react-icons/fi';
 
 const App = () => {
   const [treinosData, setTreinosData] = useState(treinos);
   const [menuAberto, setMenuAberto] = useState(false);
+  const [activeDay, setActiveDay] = useState(null);
 
   const marcarTodosComoFeitos = () => {
     const novosTreinos = treinosData.map(dia => ({
@@ -33,6 +34,10 @@ const App = () => {
     setMenuAberto(prev => !prev);
   };
 
+  const handleDayClick = (index) => {
+    setActiveDay(index);
+  };
+
   return (
     <div className={`App ${menuAberto ? 'menu-aberto' : ''}`}>
       <div className="layout">
@@ -44,18 +49,51 @@ const App = () => {
           setIsOpen={setMenuAberto}
         />
 
-        {/* Botão único que abre/fecha o menu */}
+        {/* Botão de menu mobile */}
         <button onClick={toggleMenu} className="menu-toggle-button">
           {menuAberto ? <FiX className="icon" /> : <FiMenu className="icon" />}
         </button>
 
-        {/* Conteúdo principal */}
+        {/* Conteúdo Principal */}
         <main className={`conteudo ${menuAberto ? 'conteudo-com-menu' : ''}`}>
+          {/* Cabeçalho */}
+          <header className="workout-header">
+            <h1 className="workout-title">Treino</h1>
+            <h2 className="workout-subtitle">Acabado Municipal</h2>
+          </header>
+
+          {/* Seção de Opções de Treino */}
+          <section className="workout-options">
+            <h3>Escolha seu treino:</h3>
+            <div className="options-grid">
+              <Link to="/treino/1">
+                <button className="option-button">Traitoral, Especialista (VRT)</button>
+              </Link>
+              <Link to="/treino/2">
+                <button className="option-button">Smart FT+CD</button>
+              </Link>
+              <Link to="/treino/3">
+                <button className="option-button">Agenciamer</button>
+              </Link>
+              <Link to="/treino/4">
+                <button className="option-button">Smart FT+CD</button>
+              </Link>
+            </div>
+          </section>
+
+          {/* Navegação entre Dias */}
           <nav className="nav-treinos">
             {treinosData.map((dia, index) => (
-              <div className="treino-card" key={index}>
+              <div 
+                className={`treino-card ${activeDay === index ? 'active' : ''}`} 
+                key={index}
+                onClick={() => handleDayClick(index)}
+              >
                 <Link to={`/dia${index + 1}`}>
-                  <button>{`Dia ${index + 1}`}</button>
+                  <button className="day-button">
+                    <span className="day-number">Dia {index + 1}</span>
+                    <span className="day-focus">{dia.foco}</span>
+                  </button>
                 </Link>
               </div>
             ))}
