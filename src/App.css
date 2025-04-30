@@ -17,11 +17,12 @@
 /* Estilos globais */
 body {
   font-family: 'Roboto', sans-serif;
-  background-color: var(--background);
-  color: var(--text);
   margin: 0;
   padding: 0;
   display: flex;
+  min-height: 100vh;
+  background: linear-gradient(to bottom right, #5d2c94, #110fa1); /* gradiente do laranja para o preto */
+  color: var(--text);
 }
 
 .App {
@@ -33,17 +34,18 @@ body {
 .menu-lateral {
   position: fixed;
   top: 0;
-  left: -250px; /* Menu inicialmente fora da tela */
+  left: 0;
   width: 250px;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.7); /* Fundo escuro translúcido */
-  transition: transform 0.3s ease, background-color 0.3s ease; /* Transições suaves */
+  background-color: rgba(0, 0, 0, 0.7);
+  transition: transform 0.3s ease, background-color 0.3s ease;
   z-index: 1000;
-  padding-top: 60px; /* Espaçamento superior para o conteúdo do menu */
+  padding-top: 60px;
+  transform: translateX(-100%); /* <-- ESSENCIAL */
 }
 
 .menu-lateral.open {
-  transform: translateX(250px); /* Menu desliza para dentro */
+  transform: translateX(0px); /* Menu desliza para dentro */
   background-color: rgba(0, 0, 0, 0.9); /* Quando aberto, fundo opaco */
 }
 
@@ -114,7 +116,7 @@ body {
   top: 20px;
   left: 20px;
   z-index: 1100;
-  background-color: var(--primary);
+  background-color: var(--secondary);
   color: white;
   font-size: 20px;
   border: none;
@@ -125,7 +127,7 @@ body {
 }
 
 .menu-toggle-button:hover {
-  background-color: var(--accent);
+  background-color: var(--primary);
 }
 
 .menu-toggle-button .icon {
@@ -145,24 +147,21 @@ body {
 @media (max-width: 768px) {
   .menu-lateral {
     width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.8); /* Fundo escuro e translúcido */
-    padding: 10px;
   }
 
   .App {
     flex-direction: column;
   }
-
+  .App.menu-aberto .treinos-container {
+    margin-left: 0;
+  }
   .treinos-container {
     padding: 10px;
-    margin-left: 0;
   }
 
   .nav-treinos {
-    margin-top: 20px;
+    flex-direction: column;
+    gap: 10px;
   }
 }
 
@@ -234,6 +233,28 @@ body {
 
 .treino-card button:hover {
   background-color: #45a049;
+}
+
+/*Caia de marcaçao de peso*/
+.pr-input-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+.pr-label {
+  font-size: 14px;
+  margin-bottom: 5px;
+  color: white;
+}
+
+.pr-input {
+  padding: 8px;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+  background-color: #2c2c2c;
+  color: white;
 }
 
 /* Navegação entre os treinos */

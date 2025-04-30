@@ -55,21 +55,13 @@ const MenuLateral = ({ marcarTodosComoFeitos, deletarTarefas, onLogout, isOpen, 
 
       <div className="menu-days">
         <h4>Dias de Treino</h4>
+        <div className="day-item">Dia 1</div>
+        <div className="day-item">Dia 2</div>
         <div className="day-item">Dia 3</div>
         <div className="day-item">Dia 4</div>
         <div className="day-item">Dia 5</div>
       </div>
 
-      {/* Botão que fica sempre visível para abrir o menu */}
-      {!isOpen && (
-        <button 
-          className="menu-toggle-button"
-          onClick={() => setIsOpen(true)}
-          style={{ position: 'fixed', top: '20px', left: '20px', zIndex: 1100 }}
-        >
-          <FiMenu className="icon" /> Menu
-        </button>
-      )}
     </div>
   );
 };

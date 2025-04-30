@@ -1,8 +1,23 @@
-// components/DiaTreino.js
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { FiCheckCircle, FiClock } from 'react-icons/fi';
 
 const DiaTreino = ({ exercicios }) => {
+  const [prValues, setPrValues] = useState({});
+
+  // Carregar os PRs armazenados no localStorage
+  useEffect(() => {
+    const savedPrValues = JSON.parse(localStorage.getItem('prValues')) || {};
+    setPrValues(savedPrValues);
+  }, []);
+
+  // Função para salvar o PR no localStorage
+  const handlePrChange = (exercicioIndex, event) => {
+    const newPr = event.target.value;
+    const newPrValues = { ...prValues, [exercicioIndex]: newPr };
+    setPrValues(newPrValues);
+    localStorage.setItem('prValues', JSON.stringify(newPrValues));  // Salva os PRs no localStorage
+  };
+
   return (
     <div className="treino-container">
       <div className="exercicio-list">
@@ -21,9 +36,20 @@ const DiaTreino = ({ exercicios }) => {
               <button className="action-button complete">
                 <FiCheckCircle /> Concluir
               </button>
-              <button className="action-button timer">
-                <FiClock /> Timer
-              </button>
+              
+              {/* Input para PR */}
+              <div className="pr-input-container">
+                <label htmlFor={`pr-${index}`} className="pr-label">Seu PR:</label>
+                <input 
+                  type="number" 
+                  id={`pr-${index}`} 
+                  name={`pr-${index}`} 
+                  value={prValues[index] || ''}  // Exibe o PR salvo ou vazio
+                  onChange={(event) => handlePrChange(index, event)}  // Atualiza o PR
+                  placeholder="Ex: 100 kg" 
+                  className="pr-input"
+                />
+              </div>
             </div>
           </div>
         ))}

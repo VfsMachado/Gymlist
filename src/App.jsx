@@ -7,11 +7,12 @@ import Dia2 from './pages/dia2';
 import Dia3 from './pages/dia3';
 import Dia4 from './pages/dia4';
 import Dia5 from './pages/dia5';
-import treinos from './data/treinos'; // Importando os dados dos treinos
+import treinos from './data/treinos';
+import { FiMenu, FiX } from 'react-icons/fi';
 
 const App = () => {
-  const [treinosData, setTreinosData] = useState(treinos); // Usando os dados dos treinos
-  const [menuAberto, setMenuAberto] = useState(false);     // Novo: controla se o menu está aberto
+  const [treinosData, setTreinosData] = useState(treinos);
+  const [menuAberto, setMenuAberto] = useState(false);
 
   const marcarTodosComoFeitos = () => {
     const novosTreinos = treinosData.map(dia => ({
@@ -28,9 +29,14 @@ const App = () => {
     setTreinosData([]);
   };
 
+  const toggleMenu = () => {
+    setMenuAberto(prev => !prev);
+  };
+
   return (
-    <div className="App">
-      <div className="layout"> {/* novo contêiner para organizar */}
+    <div className={`App ${menuAberto ? 'menu-aberto' : ''}`}>
+      <div className="layout">
+        {/* Menu Lateral */}
         <MenuLateral
           marcarTodosComoFeitos={marcarTodosComoFeitos}
           deletarTarefas={deletarTarefas}
@@ -38,8 +44,13 @@ const App = () => {
           setIsOpen={setMenuAberto}
         />
 
+        {/* Botão único que abre/fecha o menu */}
+        <button onClick={toggleMenu} className="menu-toggle-button">
+          {menuAberto ? <FiX className="icon" /> : <FiMenu className="icon" />}
+        </button>
+
+        {/* Conteúdo principal */}
         <main className={`conteudo ${menuAberto ? 'conteudo-com-menu' : ''}`}>
-          {/* Navegação para os dias de treino */}
           <nav className="nav-treinos">
             {treinosData.map((dia, index) => (
               <div className="treino-card" key={index}>
@@ -49,11 +60,8 @@ const App = () => {
               </div>
             ))}
           </nav>
-          <div className={`App ${menuAberto ? 'menu-aberto' : ''}`}>
-  {/* conteúdo */}
-</div>
 
-          {/* Rotas para as páginas dos dias */}
+          {/* Rotas */}
           <Routes>
             <Route path="/dia1" element={<Dia1 />} />
             <Route path="/dia2" element={<Dia2 />} />
